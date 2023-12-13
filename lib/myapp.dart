@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:interviewdemo/utils/app_string.dart';
 import 'package:interviewdemo/utils/utils.dart';
 
@@ -12,6 +13,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
+          locale: LanguageChangeProvider.currentLocal,
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
           title: AppString.appName,
           initialBinding: AppBidding(),
           initialRoute: Routes.splash,
