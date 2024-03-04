@@ -3,6 +3,8 @@
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  FireBaseNotification().configureSelectNotificationSubject();
+  await FireBaseNotification().setUpLocalNotification();
   FireBaseCrashlyticsUtils().init();
   await AppPreference.initMySharedPreferences();
   if (AppPreference.getLang().isEmpty) AppPreference.setLang('en');

@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
+    FireBaseNotification().firebaseCloudMessagingLSetup();
     Future.delayed(const Duration(seconds: 3), () {
       navigateFurther(context);
     });
